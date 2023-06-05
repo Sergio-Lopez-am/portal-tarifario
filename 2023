@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portal de Búsqueda</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    form input[type="text"] {
+      width: 250px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button[type="submit"] {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Portal de Búsqueda</h1>
+  
+    <form onsubmit="return buscar()">
+      <input type="text" id="codigo" placeholder="Ingresa el código de búsqueda" required>
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+
+  <script>
+    function buscar() {
+      event.preventDefault();
+
+      var codigo = document.getElementById('codigo').value;
+      
+      // Aquí puedes agregar tu lógica para buscar y obtener el enlace correspondiente
+      // Utilizaremos un objeto JavaScript para mapear códigos y enlaces
+      var enlaces = {
+        "codigo1": "https://www.ejemplo1.com",
+        "codigo2": "https://www.ejemplo2.com",
+          "codigo3": "https://www.ejemplo3.com"
+        };
+
+      // Verificamos si el código existe en el objeto de enlaces
+      if (codigo in enlaces) {
+        var enlace = enlaces[codigo];
+        window.location.href = enlace;
+      } else {
+        alert("El código ingresado no existe");
+      }
+      
+      return false;
+    }
+  </script>
+</body>
+</html>
